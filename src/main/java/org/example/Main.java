@@ -25,15 +25,17 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        //// Избегание магических чисел: Константа 8 используется для выхода из цикла приложения
+        //// Избегание магических чисел: EXIT_FROM_WHILE используется для выхода из цикла приложения
               // и указана в качестве условия выхода из цикла
-        Shop shop = new Shop();
+        ProductFactory productFactory = new ProductFactory();
+        Shop shop = new Shop(productFactory);
         User user = new User("Ivan Ivanov", "ivanivanov@example.com", new Cart(new ArrayList<>()));
 
         Scanner scanner = new Scanner(System.in);
         scanner.useLocale(Locale.FRANCE);// это было сделано для того чтобы точно знать как вводить double через точку или запятую в консоли
         int choice = 0;
-        while (choice != 8) {
+        int EXIT_FROM_WHILE = 8;
+        while (choice != EXIT_FROM_WHILE) {
             System.out.println("1. Display available products");
             System.out.println("2. Filter products");
             System.out.println("3. Add product to cart");

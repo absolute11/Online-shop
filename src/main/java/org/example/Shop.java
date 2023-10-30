@@ -10,24 +10,26 @@ public class Shop {
     private DeliverySystem deliverySystem;
 
 
-    public Shop() {
+    public Shop(ProductFactory productFactory) {
         this.products = new ArrayList<>();
         this.users = new ArrayList<>();
         this.orders = new ArrayList<>();
         this.deliverySystem = new DeliverySystem();
-        initializeProducts();
+        initializeProducts(productFactory);
     }
 
-    private void initializeProducts() {
-        products.add(new Product("Milk", 50.0, "AB", 10,4.0));
-        products.add(new Product("Water", 70.0, "XB", 15,3.0));
-        products.add(new Product("Sweets", 73.0, "DB", 15,5.0));
-        products.add(new Product("Soup", 20.0, "CB", 15,4.5));
-        products.add(new Product("Ice cream", 40.0, "PB", 15,3.0));
-        products.add(new Product("meat", 100.0, "LB", 15,4.7));
-        products.add(new Product("Milk", 80.0, "AB", 15,4.7));
-        products.add(new Product("Milk", 99.0, "AB", 15,4.7));
-        // Добавление других товаров
+    private void initializeProducts(ProductFactory productFactory) {
+        products.add(productFactory.createProduct("Milk", 50.0, "AB", 10, 4.0));
+        products.add(productFactory.createProduct("Water", 70.0, "GB", 15, 3.0));
+        products.add(productFactory.createProduct("Ice cream", 120.0, "AB", 10, 4.0));
+        products.add(productFactory.createProduct("Orange", 70.0, "CB", 15, 5.0));
+        products.add(productFactory.createProduct("Fanta", 76.0, "AB", 10, 4.1));
+        products.add(productFactory.createProduct("Sweets", 30.0, "AB", 15, 4.4));
+        products.add(productFactory.createProduct("tomato", 20.0, "AB", 10, 4.0));
+        products.add(productFactory.createProduct("cucumber", 70.0, "CB", 15, 3.0));
+        products.add(productFactory.createProduct("Chocolate", 320.0, "AB", 10, 4.0));
+        products.add(productFactory.createProduct("Ketchup", 70.0, "CB", 15, 3.0));
+
     }
 
     public void displayAvailableProducts() {
